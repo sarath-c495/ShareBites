@@ -1,0 +1,58 @@
+﻿.login-page .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.login-page .popup-content {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.login-page .popup-content h2 {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+.login-page form {
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page input[type="text"],
+.login-page input[type="password"],
+.login-page input[type="submit"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login-page input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#success-message {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+.login-page .popup-content h2 {
+    margin-top: 2px;
+}

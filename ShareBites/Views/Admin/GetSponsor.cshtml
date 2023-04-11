@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ShareBites.Models.Sponsor>
+
+@{
+    ViewData["Title"] = "GetSponsor";
+}
+
+<h1>GetSponsor</h1>
+
+<p>
+    <a href="@Url.Action("SponsorReg", "UserType")">Add Sponsor</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeOfHelp1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ModeOfHelp1Navigation)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeOfHelp1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login.LoginId)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ModeOfHelp1Navigation.HelpId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Region.RegionId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SponsorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SponsorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SponsorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

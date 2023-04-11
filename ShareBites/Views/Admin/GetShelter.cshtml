@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ShareBites.Models.Shelter>
+
+@{
+    ViewData["Title"] = "GetShelter";
+}
+
+<h1>GetShelter</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShelterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasCar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShelterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasCar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login.LoginId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region.RegionId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ShelterId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ShelterId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ShelterId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
