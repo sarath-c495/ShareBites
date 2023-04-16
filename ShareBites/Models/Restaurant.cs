@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShareBites.Models
@@ -13,6 +14,7 @@ namespace ShareBites.Models
 
         public int ResId { get; set; }
         [Required(ErrorMessage = "Please enter your Restaurants name")]
+        [DisplayName("Restaurant Name")]
         public string? Name { get; set; }
         public string? Description { get; set; }
         [Required]

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ShareBites.Models.ExcessFoodOrder>
+
+@{
+    ViewData["Title"] = "ViewOrders";
+}
+
+<h1>ViewOrders</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.OrPickUp)*@
+                PickUp Status
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeOfdelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Helper)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Shelter)*@
+                Restaurant
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food.FoodStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @if (item.OrderPickUp.HasValue)
+                    {
+                        <span>Picked up at :</span>  @Html.DisplayFor(modelItem => item.OrderPickUp)
+                    }
+                    else
+                    {
+                        <span>Not Picked Up</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModeOfdelivery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Food.FoodDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Helper.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Food.Res.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Food.FoodStatus)
+                </td>
+                <td>
+                    
+                    <a asp-action="OrderDetails" asp-route-id="@item.OrderId">Details</a> |
+                    <a asp-action="DeleteOrder" asp-route-id="@item.OrderId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

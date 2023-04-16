@@ -56,3 +56,34 @@
 .login-page .popup-content h2 {
     margin-top: 2px;
 }
+
+.search-field {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.btn {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 10px;
+    align-self: flex-end;
+}
+
+.search-form {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+}
+/*footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+}*/
+footer {
+    text-align: center;
+}

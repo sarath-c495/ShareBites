@@ -1,0 +1,50 @@
+﻿@model ShareBites.Models.ResFoodHandler
+
+@{
+    ViewData["Title"] = "OrderConfirm";
+}
+
+<h1>Confirm your Order</h1>
+
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateAndTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateAndTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WaitingTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WaitingTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodDesc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodDesc)
+        </dd>
+      
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Res.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Res.Name)
+        </dd>
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Res.Region.RegionName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Res.Region.RegionName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="OrderFood" asp-route-id="@Model?.FoodId">Confirm Your Order</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

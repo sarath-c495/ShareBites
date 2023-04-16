@@ -4,9 +4,8 @@
     ViewData["Title"] = "Add Sponsor";
 }
 
-<h1>Sponsor</h1>
 
-<h4>Register</h4>
+<h4>Sponsor-Register</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -50,14 +49,20 @@
                 <label asp-for="LoginId" class="control-label"></label>
                 <input asp-for="LoginId" class ="form-control" asp-items="ViewBag.LoginId"></input>
             </div>*@
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" /> | <a href="@Url.Action("Index", "Home")">Back to Home</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a href="@Url.Action("Index", "Home")">Back to Home</a>
-</div>
 
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

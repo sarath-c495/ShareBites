@@ -11,7 +11,7 @@ namespace ShareBites.Models
         public TimeSpan? WaitingTime { get; set; }
         public string? FoodDesc { get; set; }
         public string? FoodStatus { get; set; }
-        public int? IsExcess { get; set; }
+        public bool IsExcess { get; set; }
 
         public virtual Restaurant? Res { get; set; }
         public virtual ExcessFoodOrder? ExcessFoodOrder { get; set; }
