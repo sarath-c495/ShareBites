@@ -8,6 +8,7 @@ using System.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.CodeAnalysis.Rename;
 
 namespace ShareBites.Controllers
 {
@@ -61,7 +62,8 @@ namespace ShareBites.Controllers
             if (result)
             {
                 var claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.Name, username));
+                //claims.Add(new Claim(ClaimTypes.Name, username));
+                claims.Add(new Claim(ClaimTypes.Name, existingUser.LoginId.ToString()));
 
                 claims.Add(new Claim(ClaimTypes.Role, usertype.UserType));
 
@@ -116,7 +118,7 @@ namespace ShareBites.Controllers
                 //}
                _dbContext.UserLogins.Add(user);
                _dbContext.SaveChanges();
-                return RedirectToAction("RegisterUserTypes");
+                return RedirectToAction("Index","Home");
             }
             else
                 return RedirectToAction("Register");
@@ -126,33 +128,74 @@ namespace ShareBites.Controllers
         [Authorize]
         public IActionResult RegisterUserTypes()
         {
-
+            var userid = User.FindFirstValue(ClaimTypes.Name);
+            bool registered = false; 
+           
             int userId = HttpContext.Session.GetInt32("UserId") ?? 0;
+            if (userId == 0)
+            {
+                return RedirectToAction("Login", "Login");
+            }
             //var role = User.Identity.GetClaimValue(ClaimTypes.Role);
             var userIdentity = (ClaimsIdentity)User.Identity;
             var roleClaim = userIdentity.FindFirst(ClaimTypes.Role);
 
-            if (userId != 0)
+            if (!string.IsNullOrEmpty(userid))
             {
                 switch (roleClaim.Value)
                 {
                     case "shelter":
-                        return RedirectToAction("ShelterReg","UserType");
+                        {
+                            registered = _dbContext.Shelters.Any(u => u.LoginId.ToString() == userid);
+                            break;
+                        }
                     case "Sponsor":
-                        return RedirectToAction("SponsorReg", "UserType");
-
+                        {
+                            registered = _dbContext.Sponsors.Any(u => u.LoginId.ToString() == userid);
+                            break;
+                        }
                     case "helper":
-
-                        return RedirectToAction("HelperReg", "UserType");
+                        {
+                            registered = _dbContext.Helpers.Any(u => u.LoginId.ToString() == userid);
+                            break;
+                        }
                     case "Restaurant":
-
-                        return RedirectToAction("RestReg", "UserType");
+                        {
+                            registered = _dbContext.Restaurants.Any(u => u.LoginId.ToString() == userid);
+                            break;
+                        }
                     default:
                         break;
                 }
-
             }
-            return View();
+            if (registered)
+            {
+                ViewBag.Registered = "You have been already registered";
+            }
+            else
+            {
+                if (userId != 0)
+                {
+                    switch (roleClaim.Value)
+                    {
+                        case "shelter":
+                            return RedirectToAction("ShelterReg", "UserType");
+                        case "Sponsor":
+                            return RedirectToAction("SponsorReg", "UserType");
+
+                        case "helper":
+
+                            return RedirectToAction("HelperReg", "UserType");
+                        case "Restaurant":
+
+                            return RedirectToAction("RestReg", "UserType");
+                        default:
+                            break;
+                    }
+
+                }
+            }
+            return RedirectToAction("Register");
         }
         [HttpGet]
         public IActionResult AccessDenied()

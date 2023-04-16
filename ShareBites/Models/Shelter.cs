@@ -18,7 +18,7 @@ namespace ShareBites.Models
         [Required]
         public string? RegionId { get; set; }
         [Required]
-        public int? HasCar { get; set; }
+        public bool HasCar { get; set; }
         [Required(ErrorMessage = "Please enter the address")]
         public string? Address1 { get; set; }
         public string? Address2 { get; set; }

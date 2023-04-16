@@ -1,0 +1,56 @@
+﻿@model ShareBites.Models.ResFoodHandler
+
+@{
+    ViewData["Title"] = "AddFood";
+}
+
+<h4>Add Food</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SaveFoodDB">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*<label asp-for="ResId" class="control-label"></label>*@
+                <input asp-for="ResId" class="form-control" type="hidden" value="@ViewBag.ResId" />                
+            </div>
+            <div class="form-group">
+                <label asp-for="DateAndTime" class="control-label"></label>
+                <input asp-for="DateAndTime" class="form-control" />
+                <span asp-validation-for="DateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaitingTime" class="control-label"></label>
+                <input asp-for="WaitingTime" class="form-control" type="time" />
+                <span asp-validation-for="WaitingTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodDesc" class="control-label"></label>
+                <input asp-for="FoodDesc" class="form-control" />
+                <span asp-validation-for="FoodDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodStatus" class="control-label"></label>
+                @*<input asp-for="FoodStatus" class="form-control" />*@
+                <select asp-for="FoodStatus" asp-items="@ViewBag.StatusList" class="form-control"></select>
+                <span asp-validation-for="FoodStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="IsExcess" class="form-check-input" />
+                <label class="form-check-label" asp-for="IsExcess">Excess Food</label>
+                @*<label asp-for="IsExcess" class="control-label"></label>
+                <input asp-for="IsExcess" class="form-control" />*@
+                <span asp-validation-for="IsExcess" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Food" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

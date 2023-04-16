@@ -1,12 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+@{
+    ViewBag.userId = User.FindFirstValue(ClaimTypes.Name);
+    ViewBag.role = User.FindFirstValue(ClaimTypes.Role);
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ShareBites</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/sharebitestyles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShareBites.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -35,15 +41,50 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Register">Register</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="RegisterUserTypes">Register</a>
+                        </li>
+                        @* <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
+                        </li>*@
+                        @if (ViewBag.role == "admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="AddFood">Add Food</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="ViewFood">View Food</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="ViewOrders">View Orders</a>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+
+                    </form>
+                    <ul class="navbar-nav d-flex">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" asp-controller="Login" asp-action="Register" id="navDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle fa-lg rounded-circle"></i> Profile
+                            </a>
+                            <ul style="width:250px; margin-top:12%" class="dropdown-menu dropdown-menu-lg dropdown-menu-end" aria-labelledby="navDropdown">
+                                @if (string.IsNullOrEmpty(ViewBag.userId))
+                                {
+                                    <li><a class="dropdown-item" asp-controller="Login" asp-action="Register">Sign up</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Login" asp-action="Login">Login</a></li>
+                                }else{
+                                <li><a class="dropdown-item" asp-controller="Login" asp-action="Logout">Logout</a></li>
+                                }
+                            </ul>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </nav>

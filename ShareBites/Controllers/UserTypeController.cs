@@ -88,8 +88,8 @@ namespace ShareBites.Controllers
         {
             if (ModelState.IsValid)
             {
-                _userId = HttpContext.Session.GetInt32("UserId") ?? 0;
-                
+                _userId = HttpContext.Session.GetInt32("UserId") ?? 0;               
+
                 sponsor.LoginId = _userId;
                 _dbContext.Sponsors.Add(sponsor);
                 _dbContext.SaveChanges();
@@ -103,6 +103,7 @@ namespace ShareBites.Controllers
             if (ModelState.IsValid)
             {
                 _userId = HttpContext.Session.GetInt32("UserId") ?? 0;
+
                 rest.LoginId = _userId;
                 _dbContext.Restaurants.Add(rest);
                 _dbContext.SaveChanges();
