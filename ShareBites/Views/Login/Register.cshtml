@@ -4,25 +4,29 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
 
+
+<br />
+<br />
+<h4 class="display-6">Register</h4>
 @*<h4>UserLogin</h4>*@
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<br />
+<div class="row display-10">
+    <div class="col-md-4 display-10">
         <form asp-action="RegisterUser" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group display-10">
                 <label asp-for="Username" class="control-label"></label>
                 <input asp-for="Username" class="form-control" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group display-10">
                 <label asp-for="Password" class="control-label"></label>
                 <input asp-for="Password" class="form-control" type="password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group display-10">
                 <label asp-for="UserTypeId" class="control-label">User Type</label>
                 <select asp-for="UserTypeId" class="form-control" asp-items="ViewBag.UserType"></select>
             </div>
@@ -32,16 +36,15 @@
                 <span asp-validation-for="IsVerified" class="text-danger"></span>
             </div>*@
             <br>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div >
+                <input type="submit" value="Sign Up" class="btn btn-outline-success" />
+                @*<a asp-action="Index" class="btn btn-outline-success">Back to Home</a>*@
+                @*<button type="submit" class="btn btn-outline-success" value="Create">create</button>*@
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{

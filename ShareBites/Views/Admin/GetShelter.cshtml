@@ -4,12 +4,16 @@
     ViewData["Title"] = "GetShelter";
 }
 
-<h1>GetShelter</h1>
 
+
+<br />
+<br />
+<h4 class="display-6">Get Shelter</h4>
+<br />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-outline-success btn-sm">>Create New</a>
 </p>
-<table class="table">
+<table class="table display-10">
     <thead>
         <tr>
             <th>
@@ -79,9 +83,9 @@
                 @Html.DisplayFor(modelItem => item.Region.RegionId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ShelterId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ShelterId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ShelterId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.ShelterId" class="btn btn-outline-success">>Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.ShelterId" class="btn btn-outline-info">>Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.ShelterId" class="btn btn-outline-danger">>Delete</a>
             </td>
         </tr>
 }

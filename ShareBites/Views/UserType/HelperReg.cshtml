@@ -3,10 +3,14 @@
 @{
     ViewData["Title"] = "HelperReg";
 }
+<br />
+<br />
 
-<h4>Helper-Register</h4>
+
+<h4 class="display-6">Helper-Register</h4>
 <hr />
-<div class="row">
+<br />
+<div class="row display-10">
     <div class="col-md-4">
         <form asp-action="AddHelper">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -60,8 +64,10 @@
                 <label asp-for="LoginId" class="control-label"></label>
                 <select asp-for="LoginId" class ="form-control" asp-items="ViewBag.LoginId"></select>
             </div>*@
+            <br />
             <div class="form-group form-group-sm">
-                <input type="submit" value="Register" class="btn btn-primary" />  |   <a href="@Url.Action("Index", "Home")">Back to Home</a>
+                <input type="submit" value="Register" class="btn btn-outline-success" /> 
+                <a href="@Url.Action("Index", "Home")" class="btn btn-outline-success">Back to Home</a>
             </div>
         </form>
     </div>

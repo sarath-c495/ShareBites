@@ -4,12 +4,16 @@
     ViewData["Title"] = "Regions";
 }
 
-<h1>Region List</h1>
 
+
+<br />
+<br />
+<h4 class="display-6">Region List</h4>
+<br />
 <p>
-    <a asp-action="CreateRegion">Create New</a>
+    <a asp-action="CreateRegion" class="btn btn-success btn-sm">Create New</a>
 </p>
-<table class="table">
+<table class="table display-10">
     <thead>
         <tr>
             <th>
@@ -43,9 +47,9 @@
                 @Html.DisplayFor(modelItem => item.IsActive)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RegionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RegionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RegionId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.RegionId" class="btn btn-outline-success">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.RegionId" class="btn btn-outline-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.RegionId" class="btn btn-outline-danger">Delete</a>
             </td>
         </tr>
 }

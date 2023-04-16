@@ -4,11 +4,13 @@
     ViewData["Title"] = "OrderConfirm";
 }
 
-<h1>Confirm your Order</h1>
+<br/>
+<br />
 
-<div>
-   
-    <hr />
+<h4 class="display-6">Order Confirm</h4>
+<hr />
+<br />
+<div class="display-10">
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DateAndTime)
@@ -44,7 +46,8 @@
         </dd>
     </dl>
 </div>
+<br />
 <div>
-    <a asp-action="OrderFood" asp-route-id="@Model?.FoodId">Confirm Your Order</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="OrderFood" asp-route-id="@Model?.FoodId" class="btn btn-outline-success">Order Now</a>
+    <a class="btn btn-outline-success" asp-area="" asp-controller="Food" asp-action="ViewFood">Back to Food List</a>
 </div>

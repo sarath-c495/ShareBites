@@ -2,88 +2,84 @@
 
 @{
     ViewData["Title"] = "OrderDetails";
+    var orderPickUp = Model.OrderPickUp.HasValue ? Model.OrderPickUp.ToString() : "N/A";
 }
-
-<h1>Order Details</h1>
-
-<div>
+<br />
+<br />
+<div class="container mt-5">
+    <h4 class="display-6">Order Details</h4>
     <hr />
-    <dl class="row">
-        <div class="col-md-4">
-            <h6>Restaurant</h6> <hr />
-            <dt class="col-sm-10">
-                @Html.DisplayNameFor(model => model.Food.Res.Name)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Food.Res.Name)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Food.Res.EmailId)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Food.Res.EmailId)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Food.Res.PhoneNumber)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Food.Res.PhoneNumber)
-            </dd>
-        </div>
-        <div class="col-md-4">
-            <h6>Food</h6> <hr />
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Food.FoodDesc)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Food.FoodDesc)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Food.FoodStatus)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Food.FoodStatus)
-            </dd>
-             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Food.WaitingTime)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Food.WaitingTime)
-            </dd>
-        </div>
-        <div class="col-md-4">
-            <h6>Order Details</h6> <hr />
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.OrderDate)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.OrderPickUp)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.OrderPickUp ?? "N/A")
-            </dd>
-            <dt class="col-sm-2">
-                @*@Html.DisplayNameFor(model => model.Helper.Name)*@
-                Helper Name
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Helper.Name ?? "N/A")
+    <br />
+        <div class="row ">
+            <div class="col-md-4 ">
+            <h4 class="display-6">Restaurant</h4>
+            <hr />
+            <br />
+                <dl class="row ">
+                <dt class="col-sm-4">Name</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Food.Res.Name)</dd>
 
-            </dd>
-            <dt class="col-sm-2">
-                @*@Html.DisplayNameFor(model => model.Helper.PhoneNumber)*@
-                Helper Phone Number
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Helper.PhoneNumber ?? "N/A")
-            </dd>
+                <dt class="col-sm-4">Email</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Food.Res.EmailId)</dd>
+
+                <dt class="col-sm-4">Phone Number</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Food.Res.PhoneNumber)</dd>
+            </dl>
         </div>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a> |
-    <a asp-action="ViewOrders">Back to List</a>
+            <div class="col-md-4 ">
+            <h4 class="display-6">Food</h4>
+            <hr />
+            <br />
+                <dl class="row display-10">
+                <dt class="col-sm-4">Description</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Food.FoodDesc)</dd>
+
+                <dt class="col-sm-4">Status</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Food.FoodStatus)</dd>
+
+                <dt class="col-sm-4">Waiting Time</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Food.WaitingTime)</dd>
+            </dl>
+        </div>
+            <div class="col-md-4 ">
+            <h4 class="display-6">Order Details</h4>
+            <hr />
+            <br />
+                <dl class="row ">
+                <dt class="col-sm-4">Order Date</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.OrderDate)</dd>
+
+                <dt class="col-sm-4">Pick Up Time</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => orderPickUp)</dd>
+
+                <dt class="col-sm-4">Helper Name</dt>
+                <dd class="col-sm-8">
+                    @if (Model.Helper?.Name != null)
+                    {
+                        @Html.DisplayFor(model => model.Helper.Name)
+                    }
+                    else
+                    {
+                        <span>N/A</span>
+                    }
+                </dd>
+
+                <dt class="col-sm-4">Phone Number</dt>
+                <dd class="col-sm-8">
+                    @if (Model.Helper?.PhoneNumber != null)
+                    {
+                        @Html.DisplayFor(model => model.Helper.PhoneNumber)
+                    }
+                    else
+                    {
+                        <span>N/A</span>
+                    }
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <hr />
+    <br />
+    @*<a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a>*@
+    <a class="btn btn-outline-success" asp-action="ViewOrders">Back to List</a>
 </div>

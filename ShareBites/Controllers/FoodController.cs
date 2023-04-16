@@ -23,7 +23,7 @@ namespace ShareBites.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Restaurant")]
         public IActionResult AddFood()
         {
             string userId = User.FindFirstValue(ClaimTypes.Name); 
@@ -32,8 +32,7 @@ namespace ShareBites.Controllers
             var statusList = new List<SelectListItem>
             {
                 new SelectListItem { Text = "Available", Value = "Available" },
-                //new SelectListItem { Text = "Ordered", Value = "Ordered" },
-                //new SelectListItem { Text = "Picked Up", Value = "Picked Up" }
+               
             };
 
             ViewBag.StatusList = statusList;
@@ -147,7 +146,10 @@ namespace ShareBites.Controllers
         [Authorize(Roles ="admin,shelter")]
         public IActionResult DeleteOrder(int id)
         {
-            var order = _dbContext.ExcessFoodOrders.FirstOrDefault(f => f.OrderId == id);           
+            var order = _dbContext.ExcessFoodOrders
+                .Include(h => h.Food)
+                .ThenInclude(r=> r.Res)
+                .FirstOrDefault(f => f.OrderId == id);           
             
             return View(order);
         }

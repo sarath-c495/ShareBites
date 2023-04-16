@@ -3,11 +3,13 @@
 @{
     ViewData["Title"] = "EditFood";
 }
-
-<h1>Edit Food</h1>
+<br>
+<br />
+<h4 class="display-6">Edit Food</h4>
 
 <hr />
-<div class="row">
+<br />
+<div class="row display-10">
     <div class="col-md-4">
         <form asp-action="UpdFood">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -43,14 +45,14 @@
                     <input class="form-check-input" asp-for="IsExcess" /> @Html.DisplayNameFor(model => model.IsExcess)
                 </label>
             </div>*@
+            <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-outline-success" />
+                <a class="btn btn-outline-success" asp-area="" asp-controller="Food" asp-action="ViewFood">Back to Food List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 

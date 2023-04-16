@@ -3,10 +3,12 @@
 @{
     ViewData["Title"] = "RestReg";
 }
-
-<h4>Restaurant-Register</h4>
+<br />
+<br />
+<h4 class="display-6">Restaurant-Register</h4>
 <hr />
-<div class="row">
+<br />
+<div class="row display-10">
     <div class="col-md-8">
         <form asp-action="AddRest">
             <div class="row">
@@ -70,14 +72,11 @@
                     <span asp-validation-for="WaitTime" class="text-danger"></span>
                 </div>
             </div>
-            
-           
-            @* <div class="form-group">
-            <label asp-for="LoginId" class="control-label"></label>
-            <select asp-for="LoginId" class ="form-control" asp-items="ViewBag.LoginId"></select>
-            </div>*@
+                               
+            <br />
             <div class="form-group">
-                <input type="submit" value="Register" class="btn btn-primary" /> |  <a href="@Url.Action("Index", "Home")">Back to Home</a>
+                    <input type="submit" value="Register" class="btn btn-outline-success" />
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-success">Back to Home</a>
             </div>
             </div>
         </form>

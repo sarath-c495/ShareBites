@@ -3,11 +3,13 @@
 @{
     ViewData["Title"] = "Add Sponsor";
 }
+<br />
+<br>
 
-
-<h4>Sponsor-Register</h4>
+<h4 class="display-6">Sponsor-Register</h4>
 <hr />
-<div class="row">
+<br />
+<div class="row display-10">
     <div class="col-md-4">
         <form asp-action="AddSponsor">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -51,7 +53,8 @@
             </div>*@
             <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" /> | <a href="@Url.Action("Index", "Home")">Back to Home</a>
+                <input type="submit" value="Create" class="btn btn-outline-success" /> 
+                <a href="@Url.Action("Index", "Home")" class="btn btn-outline-success">Back to Home</a>
             </div>
         </form>
     </div>

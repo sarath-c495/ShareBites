@@ -3,12 +3,14 @@
 @{
     ViewData["Title"] = "ShelterReg";
 }
+<br />
+<br />
 
-<h1>Shelter</h1>
 
-<h4>Register</h4>
+<h4 class="display-6">Register Shelter</h4>
 <hr />
-<div class="row">
+<br />
+<div class="row display-10">
     <div class="col-md-8">
         <form asp-action="AddShelter">
             <div class="row">
@@ -69,8 +71,10 @@
                 <label asp-for="LoginId" class="control-label"></label>
                 <select asp-for="LoginId" class ="form-control" asp-items="ViewBag.LoginId"></select>
                 </div>*@
+                <br />
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" /> | <a href="@Url.Action("Index", "Home")">Back to Home</a>
+                    <input type="submit" value="Create" class="btn btn-outline-success" /> 
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-success">Back to Home</a>
                 </div>
             </div>
         </form>

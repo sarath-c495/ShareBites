@@ -1,4 +1,4 @@
-﻿.login-page .popup {
+﻿/*.login-page .popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -45,7 +45,10 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+.login-page .popup-content h2 {
+    margin-top: 2px;
 }
+}*/
 #success-message {
     padding: 10px;
     background-color: #4CAF50;
@@ -53,9 +56,7 @@
     font-size: 18px;
     text-align: center;
 }
-.login-page .popup-content h2 {
-    margin-top: 2px;
-}
+
 
 .search-field {
     display: inline-block;
@@ -63,12 +64,12 @@
     margin-right: 10px;
 }
 
-.btn {
+/*.btn {
     display: inline-block;
     vertical-align: bottom;
     margin-left: 10px;
     align-self: flex-end;
-}
+}*/
 
 .search-form {
     display: table;

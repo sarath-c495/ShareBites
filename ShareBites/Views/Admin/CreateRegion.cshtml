@@ -4,8 +4,11 @@
     ViewData["Title"] = "Create Region";
 }
 
-<h1>Add Region</h1>
+<br />
+<br />
 
+<h4 class="display-6">Add Region</h4>
+<br />
 <hr />
 @if (ViewBag.success)
 {
@@ -14,7 +17,7 @@
     </div>
 
 }
-<div class="row">
+<div class="row display-10">
     <div class="col-md-4">
         <form asp-action="AddRegion">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -42,15 +45,13 @@
                 <label asp-for="IsActive" class="control-label"></label>
                 <input asp-for="IsActive" class="form-control" />
                 <span asp-validation-for="IsActive" class="text-danger"></span>
-            </div>
+            </div><br />
             <div class="form-group">
-                <input type="submit" value="Add Region" class="btn btn-primary" />
+                <input type="submit" value="Add Region" class="btn btn-outline-success" />
+                <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 

@@ -4,13 +4,16 @@
     ViewData["Title"] = "GetSponsor";
 }
 
-<h1>GetSponsor</h1>
 
+<br />
+<br />
+<h4 class="display-6">Get Sponsor</h4>
+<br />
 <p>
-    <a href="@Url.Action("SponsorReg", "UserType")">Add Sponsor</a>
+    <a href="@Url.Action("SponsorReg", "UserType")" class="btn btn-outline-success btn-sm">>Add Sponsor</a>
 
 </p>
-<table class="table">
+<table class="table display-10">
     <thead>
         <tr>
             <th>
@@ -74,9 +77,9 @@
                 @Html.DisplayFor(modelItem => item.Region.RegionId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SponsorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SponsorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SponsorId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.SponsorId" class="btn btn-outline-success">>Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.SponsorId" class="btn btn-outline-info">>Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.SponsorId" class="btn btn-outline-danger">>Delete</a>
             </td>
         </tr>
 }

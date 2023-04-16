@@ -1,8 +1,36 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<br />
+<br />
+<style>
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* create 5 columns of equal width */
+        grid-auto-rows: calc((100% - 20px) / 2); /* set row height equal to half the width of the columns minus the grid gap */
+        grid-gap: 5px; /* reduce the space between images */
+    }
+
+        .image-grid img {
+            width: 100%; /* make images fill their grid cells */
+            height: 100%; /* maintain aspect ratio */
+            object-fit: cover; /* stretch images to fill their grid cells without distorting */
+        }
+</style>
 
 <div class="text-center">
     <h1 class="display-4">ShareBites</h1>
     <p>Welcome to sharebites, Every bite counts. Share the love, Share the food</p>
+</div>
+<div class="image-grid">
+    <img src="./lib/assets/image1.jpg">
+    <img src="./lib/assets/image2.jpg">
+    <img src="./lib/assets/image3.jpg">
+    <img src="./lib/assets/image4.jpg">
+    <img src="./lib/assets/image5.jpg">
+    <img src="./lib/assets/image6.jpg">
+    <img src="./lib/assets/image7.jpg">
+    <img src="./lib/assets/image8.jpg">
+    <img src="./lib/assets/image9.jpg">
+    <img src="./lib/assets/image10.jpg">
 </div>
